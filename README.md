@@ -8,8 +8,11 @@
 [see wiki](https://github.com/KristineK/cucumber_java_basic/wiki/Setup)
 
 ---
-### How to add, commit and push changes to 
-[see wiki](https://github.com/KristineK/cucumber_java_basic/wiki/Git-add-commit-pust)
+### GIT
+
+[see wiki for Create-a-branch](https://github.com/KristineK/selenium_java_basic/wiki/Create-a-branch)
+
+[see wiki for Git-add-commit-pust](https://github.com/KristineK/cucumber_java_basic/wiki/Git-add-commit-pust)
 
 
 
