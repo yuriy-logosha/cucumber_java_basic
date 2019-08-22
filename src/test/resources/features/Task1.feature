@@ -20,5 +20,7 @@ Feature: Sample page input
    Examples:
     | value | message                   |
     | 64  | Square root of 64 is 8.00 |
+    | 64  | Square root of 64 is 8.00 |
+    | 64  | Square root of 64 is 8.00 |
 
 
