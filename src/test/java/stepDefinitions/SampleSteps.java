@@ -5,6 +5,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
+import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -100,4 +101,56 @@ public class SampleSteps {
     public void iAmOnActionPage() {
         driver.get("https://kristinek.github.io/site/examples/actions");
     }
-}
+
+    @When("^im on the page$")
+    public void imOnThePage() {
+        driver.get("https://www.google.com");
+    }
+
+    @Then("^i see feel lucky button$")
+    public void iSeeFeelLuckyButton() {
+        assertTrue(driver.findElement(By.xpath("//div[@class='FPdoLc VlcLAe']//input[@name='btnI']")).isDisplayed());
+    }
+
+    @Given("^Sample page in browser$")
+    public void samplePageInBrowser() {
+        driver.get("https://kristinek.github.io/site/tasks/enter_a_number");
+    }
+
+
+
+
+    @Then("^I see error message: ([^\"]*)$")
+    public void iSeeErrorMessageMessage(String msg) {
+
+
+        driver.findElement(By.xpath("//p[@id='ch1_error']")).getText();
+
+            assertEquals(msg, driver.findElement(By.xpath("//p[@id='ch1_error']")).getText());
+
+        }
+
+    @When("^I enter incorrect value: ([^\"]*)$")
+    public void iEnterIncorrectValueValue(String value) throws  Throwable{
+        driver.findElement(By.xpath("//input[@id='numb']")).sendKeys(value);
+
+    }
+
+    @And("^I click submit$")
+    public void iClickSubmit() { driver.findElement(By.xpath("//button[@class='w3-btn w3-orange w3-margin']")).click();
+    }
+
+    @Then("^I see alert message: ([^\"]*)$")
+    public void iSeeErrorAlertMessage(String msg) {
+
+
+
+
+        assertEquals(msg,  driver.switchTo().alert().getText());
+        driver.switchTo().alert().accept();
+
+    }
+    }
+
+
+
