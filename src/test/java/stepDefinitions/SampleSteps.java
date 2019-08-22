@@ -100,4 +100,28 @@ public class SampleSteps {
     public void iAmOnActionPage() {
         driver.get("https://kristinek.github.io/site/examples/actions");
     }
+
+    @And("^I should see I'm Feeling Lucky$")
+    public void iShouldSeeIMFeelingLucky() {
+
+    }
+
+    @When("^I am on the main Google page$")
+    public void iAmOnTheMainGooglePage() {
+
+    }
+
+    @When("^I am on the main Yandex page$")
+    public void iAmOnTheMainYandexPage() {
+
+    }
+
+    @Then("^I should see Yandex search button$")
+    public void iShouldSeeYandexSearchButton() {
+
+    }
+
+    @And("^I should see Yandex logo$")
+    public void iShouldSeeYandexLogo() {
+    }
 }
