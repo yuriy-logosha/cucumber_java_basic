@@ -1,9 +1,11 @@
 package stepDefinitions;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -100,4 +102,33 @@ public class SampleSteps {
     public void iAmOnActionPage() {
         driver.get("https://kristinek.github.io/site/examples/actions");
     }
+
+
+    @Given("^I am on Enter a number page$")
+    public void iAmOnEnterNumberPage() throws Throwable {
+        driver.get("https://kristinek.github.io/site/tasks/enter_a_number");
+    }
+
+    @When("^I enter number: \"([^\"]*)\"$")
+    public void iEnterNumber(String number) throws Throwable {
+        driver.findElement(By.id("numb")).clear();
+        driver.findElement(By.id("numb")).sendKeys(number);
+    }
+
+    @And("^I click Submit$")
+    public void iClickSubmit() {
+        driver.findElement(By.tagName("button")).click();
+    }
+
+    @Then("^I see error message: \"([^\"]*)\"$")
+    public void iSeeErrorMessage(String errorMessage) throws Throwable {
+        assertEquals(errorMessage, driver.findElement(By.id("ch1_error")).getText());
+    }
+
+    @Then("^I see alert: \"([^\"]*)\"$")
+    public void iSeeAlert(String alertSqr) throws Throwable {
+        Alert alert = driver.switchTo().alert();
+        assertEquals("Square root of 81 is 9.00", alert.getText());
+    }
 }
+
