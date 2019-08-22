@@ -3,9 +3,11 @@ Feature: Introduction to cucumber part 3
   As a test engineer
   I want to be able to write and execute a scenario outline
 
+  Background:
+    Given I am on age page
+
   @debugs
   Scenario Outline: a new scenario outline
-    Given I am on age page
     When I enter name: "<name>"
     And I enter age: <age>
     And I click submit age
