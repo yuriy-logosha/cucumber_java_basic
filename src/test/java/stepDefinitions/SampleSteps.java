@@ -21,7 +21,7 @@ public class SampleSteps {
         this.driver = Hooks.driver;
     }
 
-    @Given("^I am on the home page$")
+    @When("^I am on the home page$")
     public void iAmOnTheHomePage() throws Throwable {
         driver.get("https://kristinek.github.io/site");
     }
@@ -84,11 +84,18 @@ public class SampleSteps {
         driver.findElement(By.id("result_button_checkbox")).click();
     }
 
+
     @When("^I clicked on checkboxes:$")
     public void iClickedOnCheckboxes(List<String> values) throws Throwable {
         for (String value : values) {
-            driver.findElement(By.cssSelector("[value='" + value + "']")).click();
+            if (value != null && !value.isEmpty()) {
+                driver.findElement(By.cssSelector("[value='" + value + "']")).click();
+            }
         }
+    }
+    @Then("^message for checkboxes is seen$")
+    public void messageForCheckboxesIsSeen(List<String> message) throws Throwable {
+        assertEquals(message.get(0), driver.findElement(By.id("result_checkbox")).getText());
     }
 
     @Then("^message for checkboxes \"([^\"]*)\" is seen$")

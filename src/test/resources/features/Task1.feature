@@ -6,7 +6,7 @@ Feature: In Task1.feature create 1 scenario outline and 1 scenario for page with
   o    enter text instead of the number
   •    Scenario for correct number
 
- Scenario Outline: a new scenario outline
+Scenario Outline: a new scenario outline
    Given I am on sample page
    When enter "<numb>"
    And I click submit
