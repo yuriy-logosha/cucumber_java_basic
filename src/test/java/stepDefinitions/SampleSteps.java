@@ -37,11 +37,11 @@ public class SampleSteps {
                 driver.findElement(By.cssSelector("p")).getText());
     }
 
-    @When("^I enter name: \"([^\"]*)\"$")
+/*    @When("^I enter name: \"([^\"]*)\"$")
     public void iEnterName(String name) throws Throwable {
         driver.findElement(By.id("name")).clear();
         driver.findElement(By.id("name")).sendKeys(name);
-    }
+    }*/
 
     @And("^I enter age: (\\d+)$")
     public void iEnterAge(int age) throws Throwable {

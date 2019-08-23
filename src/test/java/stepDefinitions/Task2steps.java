@@ -1,10 +1,12 @@
+package stepDefinitions;
+
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import stepDefinitions.Hooks;
+
 import static org.junit.Assert.assertEquals;
 
 public class Task2steps {
@@ -18,6 +20,7 @@ public class Task2steps {
     public void iAmOnPagePeopleWithJobs() throws Throwable {
         driver.get("https://kristinek.github.io/site/tasks/list_of_people_with_jobs");
     }
+
     @When("^I click add a person$")
     public void iClickAddAPerson() throws Throwable {
         driver.findElement(By.id("addPersonBtn")).click();
@@ -26,7 +29,7 @@ public class Task2steps {
     public void iAmOnPageAddPerson() throws Throwable {
         driver.get("https://kristinek.github.io/site/tasks/enter_a_new_person_with_a_job.html");
     }
-    @And("^I enter name: \"([^\"]*)\":$")
+    @And("^I enter name: \"([^\"]*)\"$")
     public void iEnterName(String name) throws Throwable {
         driver.findElement(By.id("name")).clear();
         driver.findElement(By.id("name")).sendKeys(name);
@@ -38,16 +41,16 @@ public class Task2steps {
     }
     @And("^I click button Add$")
     public void iClickButtonAdd() throws Throwable {
-        driver.findElement(By.xpath("//a[text()='Add']")).click();
+        driver.findElement(By.xpath("//button[contains(.,'Add')]"));
     }
     @Then("^I see new person Bob$")
     public void iSeeNewPersonBob() throws Throwable {
         assertEquals("Bob",
-                driver.findElement(By.xpath("//a[text()='Bob']")));
+                driver.findElement(By.xpath("//p[text()='Bob']")));
     }
     @When("^I click on edit a person Mike$")
     public void iClickOnEditAPersonMike() throws Throwable {
-        driver.findElement(By.xpath("//a[contains(@onclick, 'openModalForEditPersonWithJob(0)']")).click();
+        driver.findElement(By.xpath("//button[contains(.,'openModalForEditPersonWithJob(0)')]"));
     }
     @And("^I am on page edit Mike$")
     public void iAmOnPageEditMike() throws Throwable {
@@ -64,7 +67,7 @@ public class Task2steps {
     }
     @When("^I click on remove a person Jill$")
     public void iClickOnRemoveAPersonJill() throws Throwable {
-        driver.findElement(By.xpath("//a[contains(@onclick, 'deletePerson(1)']")).click();
+        driver.findElement(By.xpath("//div[contains(@onclick, 'deletePerson(1)']")).click();
     }
     @Then("^There is no Jill in the list anymore$")
     public void thereIsNoJillInTheListAnymore() throws Throwable {
