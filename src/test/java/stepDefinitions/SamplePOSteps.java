@@ -54,4 +54,16 @@ public class SamplePOSteps {
         agePage.enterName(valuesToEnter.get("name"));
         agePage.enterAge(valuesToEnter.get("age"));
     }
+
+    @Given("^Page launched$")
+    public void pageLaunched() { driver.get("https://kristinek.github.io/site/tasks/list_of_people");
+    }
+
+    @When("^adding a new person$")
+    public void addingANewPerson() {
+    }
+
+    @Then("^i click submit button$")
+    public void iClickSubmitButton() {
+    }
 }

@@ -1,7 +1,6 @@
 package pages_sample;
 
 
-
 public class Person {
     String name;
     String surname;
@@ -69,7 +68,7 @@ public class Person {
 
     @Override
     public boolean equals(Object obj) {
-        if(obj instanceof Person) {
+        if (obj instanceof Person) {
             Person persObj = (Person) obj;
             return (this.getName().equals(persObj.getName()) &&
                     this.getSurname().equals(persObj.getSurname()) &&
@@ -77,7 +76,7 @@ public class Person {
                     this.getDob().equals(persObj.getDob()) &&
                     this.getGender().equals(persObj.getGender()) &&
                     this.getStatus().equals(persObj.getStatus()) &&
-                    this.getLanguages().equals(persObj.getLanguages()) );
+                    this.getLanguages().equals(persObj.getLanguages()));
         }
         return super.equals(obj);
     }
