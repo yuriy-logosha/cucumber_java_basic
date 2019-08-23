@@ -39,4 +39,7 @@ public class SampleStepsActivity1 {
         driver.findElement(By.className("RNmpXc"));
     }
 
+    @Then("^new <person> displays on the list$")
+    public void newPersonDisplaysOnTheList() {
+    }
 }
