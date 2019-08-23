@@ -46,11 +46,11 @@ public class Task2steps {
     @Then("^I see new person Bob$")
     public void iSeeNewPersonBob() throws Throwable {
         assertEquals("Bob",
-                driver.findElement(By.xpath("//p[text()='Bob']")));
+                driver.findElement(By.xpath("//*[text()='Bob']")));
     }
     @When("^I click on edit a person Mike$")
     public void iClickOnEditAPersonMike() throws Throwable {
-        driver.findElement(By.xpath("//button[contains(.,'openModalForEditPersonWithJob(0)')]"));
+        driver.findElement(By.xpath("//*[@id='person0]/span[2]/i"));
     }
     @And("^I am on page edit Mike$")
     public void iAmOnPageEditMike() throws Throwable {
@@ -76,7 +76,7 @@ public class Task2steps {
     }
     @When("^I click on Reset List$")
     public void iClickOnResetList() throws Throwable {
-        driver.findElement(By.xpath("//a[text()='Reset']")).click();
+        driver.findElement((By.xpath("//button[contains(.,'Reset')]")));
     }
     @Then("^I see Jill again$")
     public void iSeeJillAgain() throws Throwable {
@@ -109,7 +109,7 @@ public class Task2steps {
     }
     @And("^I click Clear all fields$")
     public void iClickClearAllFields() throws Throwable {
-        driver.findElement(By.xpath("//a[text()='Clear all fields']")).click();
+        driver.findElement((By.xpath("//button[contains(.,'Clear all fields')]")));
     }
     @Then("^name and job fields are clear again$")
     public void nameAndJobFieldsAreClearAgain() throws Throwable {
