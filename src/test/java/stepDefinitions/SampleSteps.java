@@ -1,9 +1,13 @@
 package stepDefinitions;
 
+import cucumber.api.CucumberOptions;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import cucumber.api.junit.Cucumber;
+import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,83 +25,56 @@ public class SampleSteps {
         this.driver = Hooks.driver;
     }
 
-    @Given("^I am on the home page$")
+    @Given("^I am on the main page$")
     public void iAmOnTheHomePage() throws Throwable {
-        driver.get("https://kristinek.github.io/site");
+        driver.get("https://kristinek.github.io/site/tasks/enter_a_number");
     }
 
-    @Then("^I should see home page header$")
-    public void iShouldSeeHomePageHeader() throws Throwable {
-        assertEquals("This is a home page",
-                driver.findElement(By.cssSelector("h1")).getText());
+    @When("^I enter wrong number or symbols: \"<number>\"$")
+    public void tooSmall() throws Throwable {
+        driver.findElement(By.id("numb")).sendKeys("<number>");
     }
 
-    @And("^I should see home page description$")
-    public void iShouldSeeHomePageDescription() throws Throwable {
-        assertEquals("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                driver.findElement(By.cssSelector("p")).getText());
+    @And("^I click on submit button$")
+    public void submitButton() throws Throwable {
+        driver.findElement(By.xpath("/html/body/div[2]/div/div/div[2]/button")).click();
     }
 
-    @When("^I enter name: \"([^\"]*)\"$")
-    public void iEnterName(String name) throws Throwable {
-        driver.findElement(By.id("name")).clear();
-        driver.findElement(By.id("name")).sendKeys(name);
+    @Then("^I see: \"<error message>\"$")
+    public void errorMessageSmall() throws Throwable {
+        assertEquals("<error message>", driver.findElement(By.id("ch1_error")).getText());
     }
 
-    @And("^I enter age: (\\d+)$")
-    public void iEnterAge(int age) throws Throwable {
-        driver.findElement(By.id("age")).sendKeys(String.valueOf(age));
+
+    @When("^I enter correct number: \"66\"$")
+    public void correctNumber() throws Throwable {
+        driver.findElement(By.id("numb")).sendKeys("66");
     }
 
-    @Given("^I (?:am on|open) age page$")
-    public void iAmOnAgePage() throws Throwable {
-        driver.get("https://kristinek.github.io/site/examples/age");
+    @And("^I click on submit button1$")
+    public void submitButton3() throws Throwable {
+        driver.findElement(By.xpath("/html/body/div[2]/div/div/div[2]/button")).click();
     }
 
-    @And("^I click submit age$")
-    public void iClickSubmitAge() throws Throwable {
-        driver.findElement(By.id("submit")).click();
+    @Then("^there is no error displayed$")
+    public void noError() throws Throwable {
+        assertEquals("Square root of 66 is 8.12", driver.switchTo().alert().getText());
     }
 
-    @Then("^I see message: \"([^\"]*)\"$")
-    public void iSeeMessage(String message) throws Throwable {
-        assertEquals(message, driver.findElement(By.id("message")).getText());
+    @And("^I enter age: \\(\\d\\+\\) using PO$")
+    public void iEnterAgeDUsingPO() {
+        
     }
 
-    @When("^I enter values:$")
-    public void iEnterValues(Map<String, String> valuesToEnter) throws Throwable {
-        for (Map.Entry<String, String> e : valuesToEnter.entrySet()) {
-            driver.findElement(By.id(e.getKey())).clear();
-            driver.findElement(By.id(e.getKey())).sendKeys(e.getValue());
-            System.out.println("key is " + e.getKey());
-            System.out.println("value is " + e.getValue());
-        }
+    @When("^I enter wrong number or symbols: \"([^\"]*)\"$")
+    public void iEnterWrongNumberOrSymbols(String arg0) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
     }
 
-    @And("^I should see menu$")
-    public void iShouldSeeMenu() throws Throwable {
-        assertTrue(driver.findElement(By.className("w3-navbar")).isDisplayed());
-    }
-
-    @And("^I click the result checkbox button$")
-    public void iClickTheResultCheckboxButton() throws Throwable {
-        driver.findElement(By.id("result_button_checkbox")).click();
-    }
-
-    @When("^I clicked on checkboxes:$")
-    public void iClickedOnCheckboxes(List<String> values) throws Throwable {
-        for (String value : values) {
-            driver.findElement(By.cssSelector("[value='" + value + "']")).click();
-        }
-    }
-
-    @Then("^message for checkboxes \"([^\"]*)\" is seen$")
-    public void messageForCheckboxesIsSeen(String message) throws Throwable {
-        assertEquals(message, driver.findElement(By.id("result_checkbox")).getText());
-    }
-
-    @Given("^I am on action page$")
-    public void iAmOnActionPage() {
-        driver.get("https://kristinek.github.io/site/examples/actions");
+    @Then("^I see: \"([^\"]*)\"$")
+    public void iSee(String arg0) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
     }
 }
