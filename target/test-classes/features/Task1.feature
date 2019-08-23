@@ -18,14 +18,14 @@ Feature: Task1
       | hi   | Please enter a number    |
 
 
-Scenario: new scenario with valid number
+  Scenario Outline: new scenario with valid number
 
-  Given I am on age page
-  When I enter age: "<age>"
-  And I click submit
-  Then I see message: "<message>"
+    Given I am on age page
+    When I enter age: "<age>"
+    And I click submit
+    Then I see message: "<message>"
 
-  Examples:
+    Examples:
 
-      |  age  |  message                   |
-      |  78   | Square root of 81 is 9.00  |
+      | age | message                   |
+      | 78  | Square root of 81 is 9.00 |

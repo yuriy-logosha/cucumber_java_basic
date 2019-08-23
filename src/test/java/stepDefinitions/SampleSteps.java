@@ -23,7 +23,7 @@ public class SampleSteps {
 
     @Given("^I am on the home page$")
     public void iAmOnTheHomePage() throws Throwable {
-        driver.get("https://kristinek.github.io/site");
+        driver.get("https://kristinek.github.io/site/examples/actions");
     }
 
     @Then("^I should see home page header$")
@@ -100,4 +100,6 @@ public class SampleSteps {
     public void iAmOnActionPage() {
         driver.get("https://kristinek.github.io/site/examples/actions");
     }
-}
+
+    }
+
