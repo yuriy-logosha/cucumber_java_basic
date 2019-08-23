@@ -21,3 +21,20 @@ Feature: Introduction to cucumber part 4
     And I click the result checkbox button
     Then message for checkboxes "You selected value(s): Option 2" is seen
 
+    Scenario Outline: a new scenario with 2-row table
+      Given I am on action page
+      When I clicked on checkboxes <option>
+      And I click the result checkbox button
+      Then message for checkboxes <message> is seen
+
+      Examples:
+        |  option  |  message                       |
+        | Option 1 | You selected value(s): Option 1|
+        | Option 2 | You selected value(s): Option 2|
+        | Option 3 | You selected value(s): Option 3|
+
+
+
+
+
+
