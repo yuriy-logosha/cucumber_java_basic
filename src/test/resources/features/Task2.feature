@@ -1,4 +1,4 @@
-Feature: Second task
+Feature: First task
   As a test engineer
   I want to check square input field results
 
