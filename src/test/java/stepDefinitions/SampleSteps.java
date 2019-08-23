@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -99,5 +100,20 @@ public class SampleSteps {
     @Given("^I am on action page$")
     public void iAmOnActionPage() {
         driver.get("https://kristinek.github.io/site/examples/actions");
+    }
+    
+    @When("^I select the checkboxes:$")
+    public void selectCheckboxes(DataTable table) {
+    	for (Map<String, String> entry : table.asMaps(String.class, String.class)) {
+    		String checkbox = entry.get("name");
+    		Boolean toSelect = Boolean.valueOf(entry.get("selected"));
+    		
+    		WebElement element = driver.findElement(By.cssSelector("[value='" + checkbox + "']"));
+    		if(element.isSelected() && !toSelect) {
+    			element.click();
+    		} else if (!element.isSelected() && toSelect) {
+    			element.click();
+    		}
+    	}
     }
 }
