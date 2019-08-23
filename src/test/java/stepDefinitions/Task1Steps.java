@@ -8,6 +8,11 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
 
 import static org.junit.Assert.assertEquals;
 
@@ -95,5 +100,4 @@ public class Task1Steps {
         assertEquals("Square root of 81 is 9.00", alert.getText());
         //alert.accept();
         //inputField.clear();
-    }
-}
+

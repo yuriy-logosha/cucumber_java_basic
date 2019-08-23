@@ -1,3 +1,4 @@
+
 Feature: Square root
   As a test engineer
   I want to be able to easy calculate a square root
@@ -12,3 +13,4 @@ Feature: Square root
     And I see error message that we need number to be entered
     Then I enter correct number and press Submit button
     And I see square root calculations results
+
