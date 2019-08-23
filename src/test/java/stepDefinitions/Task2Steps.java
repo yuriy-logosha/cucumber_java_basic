@@ -19,7 +19,7 @@ public class Task2Steps {
 
     @Given("^I am on kristinek page")
     public void iAmOnThekristinekPage() throws Throwable {
-        driver.get("https://kristinek.github.io/site/tasks/enter_a_number");
+        driver.get("https://kristinek.github.io/site/tasks/list_of_people");
     }
     @When("^When I enter number \"([^\"]*)\"$")
     public void EnterNumber(String number) throws Throwable {

@@ -39,7 +39,7 @@ public class Task1Steps {
         driver.findElement(By.id("numb")).click();
     }
 
-    @When("^I enter number too small:$")
+    @When("^I enter \"([^\"]*)\ too small:$")
     public void iEnterSmallNumber(String name) throws Throwable {
         driver.findElement(By.id("input")).sendKeys("1");
     }

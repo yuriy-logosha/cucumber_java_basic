@@ -91,9 +91,10 @@ public class SampleSteps {
         }
     }
 
-    @Then("^message for checkboxes \"([^\"]*)\" is seen$")
-    public void messageForCheckboxesIsSeen(String message) throws Throwable {
+    @Then("^checkbox \"([^\"]*)\" is seen$")
+    public void messageForCheckboxesIsSeen2(String message) throws Throwable {
         assertEquals(message, driver.findElement(By.id("result_checkbox")).getText());
+
     }
 
     @Given("^I am on action page$")
