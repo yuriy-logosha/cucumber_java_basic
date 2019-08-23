@@ -6,7 +6,6 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 import java.util.List;
 import java.util.Map;
@@ -16,8 +15,10 @@ import static org.junit.Assert.assertTrue;
 
 public class SampleSteps {
     private WebDriver driver;
+    private Object String;
 
-    public SampleSteps() {
+    public SampleSteps(Object string) {
+        String = string;
         this.driver = Hooks.driver;
     }
 
@@ -46,7 +47,7 @@ public class SampleSteps {
 
     @And("^I enter age: (\\d+)$")
     public void iEnterAge(int age) throws Throwable {
-        driver.findElement(By.id("age")).sendKeys(String.valueOf(age));
+        driver.findElement(By.id("age")).sendKeys(String.toString());
     }
 
     @Given("^I (?:am on|open) age page$")
@@ -91,8 +92,8 @@ public class SampleSteps {
         }
     }
 
-    @Then("^message for checkboxes \"([^\"]*)\" is seen$")
-    public void messageForCheckboxesIsSeen(String message) throws Throwable {
+    @Then("^message for checkboxes is seen$")
+    public void messageForCheckboxesIsSeen(List<String> message) throws Throwable {
         assertEquals(message, driver.findElement(By.id("result_checkbox")).getText());
     }
 
@@ -101,3 +102,4 @@ public class SampleSteps {
         driver.get("https://kristinek.github.io/site/examples/actions");
     }
 }
+
