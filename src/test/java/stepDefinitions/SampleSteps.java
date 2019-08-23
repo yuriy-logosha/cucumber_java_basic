@@ -130,5 +130,12 @@ public class SampleSteps {
         Alert alert = driver.switchTo().alert();
         assertEquals("Square root of 81 is 9.00", alert.getText());
     }
+
+    @When("^I clicked on \"([^\"]*)\"$")
+    public void iClickedOn(List<String> checkboxValues) throws Throwable {
+        for (String value : checkboxValues) {
+            driver.findElement(By.cssSelector("[value='" + value + "']")).click();
+        }
+    }
 }
 
