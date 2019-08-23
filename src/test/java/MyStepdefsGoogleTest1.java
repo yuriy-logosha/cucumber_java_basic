@@ -1,3 +1,4 @@
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -36,5 +37,11 @@ public class MyStepdefsGoogleTest1 {
     public void iShouldSeeInputField() {
         assertTrue(driver.findElement(By.name("q")).isDisplayed());
 
+    }
+
+    @And("^I enter new name(\\d+): \"([^\"]*)\"$")
+    public void iEnterNewName(int arg0, String arg1) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
     }
 }
