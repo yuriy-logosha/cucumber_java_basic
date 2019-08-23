@@ -87,13 +87,15 @@ public class SampleSteps {
     @When("^I clicked on checkboxes:$")
     public void iClickedOnCheckboxes(List<String> values) throws Throwable {
         for (String value : values) {
-            driver.findElement(By.cssSelector("[value='" + value + "']")).click();
+            if ( value != null && !value.isEmpty()) {
+                driver.findElement(By.cssSelector("[value='" + value + "']")).click();
+            }
         }
     }
 
-    @Then("^message for checkboxes \"([^\"]*)\" is seen$")
-    public void messageForCheckboxesIsSeen(String message) throws Throwable {
-        assertEquals(message, driver.findElement(By.id("result_checkbox")).getText());
+    @Then("^message for checkboxes$")
+    public void messageForCheckboxesIsSeen(List<String> message) throws Throwable {
+        assertEquals(message.get(0), driver.findElement(By.id("result_checkbox")).getText());
     }
 
     @Given("^I am on action page$")

@@ -1,4 +1,4 @@
-Feature: First task
+Feature: First Activity
   As a test engineer
   I want to check Search button on main search page
 
