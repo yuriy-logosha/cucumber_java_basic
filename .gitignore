@@ -1,6 +1,6 @@
 .idea/
-out/
 cucumber-report/
+target/
 phantomjsdriver.log
 *.jpg
 cucumber_project.iml
