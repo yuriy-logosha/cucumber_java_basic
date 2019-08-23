@@ -12,8 +12,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-import static junit.framework.TestCase.assertEquals;
-import static junit.framework.TestCase.assertFalse;
+import static junit.framework.TestCase.*;
 
 
 public class ListPage {
@@ -89,9 +88,12 @@ public class ListPage {
         return "https://kristinek.github.io/site/tasks/list_of_people";
     }
 
-    public void checkAdded() {
+    public void checkAdded(String name, String surname) {
         assertEquals(peopleQty + 1, persons.size());
 
+
+        assertEquals(name, getPersons().get(3).name);
+        assertEquals(surname, getPersons().get(3).surname);
 
 
     }
@@ -99,18 +101,19 @@ public class ListPage {
     public void checkRemoved() {
         assertEquals(peopleQty - 1, persons.size());
 
+
     }
 
     public void checkDeleted(String name, String surname) {
 
 
-        assertFalse(personName.get(2).getText().equals(name));
-        assertFalse(personSurname.get(2).getText().equals(surname));
+        assertFalse(getPersons().get(2).name.equals(name));
+        assertFalse(getPersons().get(2).surname.equals(surname));
     }
 
     public void checkEdited(String name, String surname) {
-        assertEquals(name, personName.get(2).getText());
-        assertEquals(surname, personSurname.get(2).getText());
+        assertEquals(name, getPersons().get(2).name);
+        assertEquals(surname, getPersons().get(2).surname);
     }
 
 }

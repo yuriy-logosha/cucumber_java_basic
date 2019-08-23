@@ -11,7 +11,7 @@ Feature: List of persons using PO
     And I enter user information: "<jobTitle>" "<status>"
     And I enter languages: "<languages>"
     Then I click Add button
-    Then I check if person added
+    Then I check if person added: "<name>" "<surname>"
 
     Examples:
       | name    | surname    | jobTitle | dateOfBirth | languages | gender | status     |
@@ -44,7 +44,7 @@ Feature: List of persons using PO
     And I enter user information: "Doctor" "Employee"
     And I enter languages: "Spanish"
     And I click Add button
-    And I check if person added
+    And I check if person added: "Julia" "Shpelkova"
     Then I click reset button
     Then I check if person removed
 

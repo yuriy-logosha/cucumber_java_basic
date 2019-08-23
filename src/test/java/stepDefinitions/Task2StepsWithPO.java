@@ -105,9 +105,9 @@ public class Task2StepsWithPO {
     }
 
 
-    @Then("^I check if person added$")
-    public void iCheckIfPersonAdded() {
-        listPage.checkAdded();
+    @Then("^I check if person added: \"([^\"]*)\" \"([^\"]*)\"$")
+    public void iCheckIfPersonAdded(String name, String surname) {
+        listPage.checkAdded(name, surname);
     }
 
     @Then("^I check if person removed$")
