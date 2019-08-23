@@ -88,13 +88,14 @@ public class SampleSteps {
     @When("^I clicked on checkboxes:$")
     public void iClickedOnCheckboxes(List<String> values) throws Throwable {
         for (String value : values) {
-            driver.findElement(By.cssSelector("[value='" + value + "']")).click();
+            if (value != null && !value.isEmpty()) {
+            driver.findElement(By.cssSelector("[value='" + value + "']")).click(); }
         }
     }
 
-    @Then("^message for checkboxes \"([^\"]*)\" is seen$")
-    public void messageForCheckboxesIsSeen(String message) throws Throwable {
-        assertEquals(message, driver.findElement(By.id("result_checkbox")).getText());
+    @Then("^Message for checkboxes is seen$")
+    public void messageForCheckboxesIsSeen(List<String> message) throws Throwable {
+        assertEquals(message.get(0), driver.findElement(By.id("result_checkbox")).getText());
     }
 
     @Given("^I am on action page$")
@@ -118,39 +119,40 @@ public class SampleSteps {
     }
 
 
-
-
     @Then("^I see error message: ([^\"]*)$")
     public void iSeeErrorMessageMessage(String msg) {
 
 
         driver.findElement(By.xpath("//p[@id='ch1_error']")).getText();
 
-            assertEquals(msg, driver.findElement(By.xpath("//p[@id='ch1_error']")).getText());
+        assertEquals(msg, driver.findElement(By.xpath("//p[@id='ch1_error']")).getText());
 
-        }
+    }
 
     @When("^I enter incorrect value: ([^\"]*)$")
-    public void iEnterIncorrectValueValue(String value) throws  Throwable{
+    public void iEnterIncorrectValueValue(String value) throws Throwable {
         driver.findElement(By.xpath("//input[@id='numb']")).sendKeys(value);
 
     }
 
     @And("^I click submit$")
-    public void iClickSubmit() { driver.findElement(By.xpath("//button[@class='w3-btn w3-orange w3-margin']")).click();
+    public void iClickSubmit() {
+        driver.findElement(By.xpath("//button[@class='w3-btn w3-orange w3-margin']")).click();
     }
 
     @Then("^I see alert message: ([^\"]*)$")
     public void iSeeErrorAlertMessage(String msg) {
 
 
-
-
-        assertEquals(msg,  driver.switchTo().alert().getText());
+        assertEquals(msg, driver.switchTo().alert().getText());
         driver.switchTo().alert().accept();
 
     }
-    }
 
+    @Then("^I should see:([^\"]*)$")
+    public void messageForCheckboxesIsSeen2(String message) throws Throwable {
+        assertEquals(message, driver.findElement(By.id("result_checkbox")).getText());
+    }
+}
 
 

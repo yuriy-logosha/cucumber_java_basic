@@ -39,7 +39,7 @@ public class SamplePOSteps {
         driver.get(agePage.getPageUrl());
     }
 
-    @And("^I click submit age using PO$")
+    @And("^I click submit age using PO:$")
     public void iClickSubmitAge() throws Throwable {
         agePage.clickSubmit();
     }
