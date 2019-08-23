@@ -49,9 +49,23 @@ public class SamplePOSteps {
         ageSubmittedPage.checkMessageText(message);
     }
 
-    @When("^I enter values using PO:$")
+    /*@When("^I enter values using PO:$")
     public void iEnterValues(Map<String, String> valuesToEnter) throws Throwable {
         agePage.enterName(valuesToEnter.get("name"));
         agePage.enterAge(valuesToEnter.get("age"));
+    }*/
+
+    @When("^I enter values using PO:$")
+    public void iEnterValuesUsingPO(Map<String, String> valuesToEnter) throws Throwable {
+        for (Map.Entry<String, String> e : valuesToEnter.entrySet()) {
+            driver.findElement(By.id(e.getKey())).clear();
+            driver.findElement(By.id(e.getKey())).sendKeys(e.getValue());
+            System.out.println("key is " + e.getKey());
+            System.out.println("value is " + e.getValue());
+        }
+    }
+    @Then("^I see message using PO: \"([^\"]*)\"$")
+    public void iSeeMessageUsingPO(String message) throws Throwable {
+        assertEquals(message, driver.findElement(By.id("message")).getText());
     }
 }

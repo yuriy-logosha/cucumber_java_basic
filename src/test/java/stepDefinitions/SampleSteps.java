@@ -93,6 +93,24 @@ public class SampleSteps {
 
     @Then("^message for checkboxes \"([^\"]*)\" is seen$")
     public void messageForCheckboxesIsSeen(String message) throws Throwable {
+        System.out.println(driver.findElement(By.id("result_checkbox")).getText());
+        assertEquals(message, driver.findElement(By.id("result_checkbox")).getText());
+    }
+
+    @When("^I clicked on checkbox test:$")
+    public void iClickedOnCheckboxTest(List<String> values) throws Throwable {
+        if (values.get(1).contains(", ")) {
+            String[] arrValues = values.get(1).split(", ");
+            for (int i = 0; i < arrValues.length; i++) {
+                driver.findElement(By.cssSelector("[value='" + arrValues[i] + "']")).click();
+            }
+        } else {
+            driver.findElement(By.cssSelector("[value='" + values.get(1) + "']")).click();
+        }
+    }
+    @Then("^message for checkbox is seen:\"([^\"]*)\"$")
+    public void messageForCheckboxIsSeen(String message) throws Throwable {
+        System.out.println(driver.findElement(By.id("result_checkbox")).getText());
         assertEquals(message, driver.findElement(By.id("result_checkbox")).getText());
     }
 
