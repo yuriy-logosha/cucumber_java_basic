@@ -4,7 +4,7 @@ Feature: Introduction to cucumber part 4
   I want to be able to write and execute a scenario with steps that have 1 column table
 
   Background:
-    Given I am on age page
+    Given I am on action page
 
   Scenario: a new scenario with 1-row table
     Given I am on action page

@@ -1,6 +1,7 @@
 package stepDefinitions;
 
 import cucumber.api.PendingException;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -27,5 +28,21 @@ public class MyStepdefsGoogle {
     public void iSee() throws Throwable {
         assertEquals("Es ticu veiksmei!",
                 driver.findElement(By.xpath("//div[@class='FPdoLc VlcLAe']//input[@name='btnI']")).getAttribute("value"));
+    }
+
+    @Given("^I am on google page$")
+    public void iAmOnGooglePage() throws Throwable {
+        driver.get("https://www.google.com/");
+    }
+
+    @And("^I search for \"([^\"]*)\"$")
+    public void iSearchFor(String item) throws Throwable {
+        driver.findElement(By.className("gNO89b")).sendKeys(item);
+
+    }
+
+    @And("^I click search$")
+    public void iClickSearch() {
+        driver.findElement(By.xpath("//div[@class='FPdoLc VlcLAe']//input[@name='btnK']")).click();
     }
 }
