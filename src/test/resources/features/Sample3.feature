@@ -12,7 +12,7 @@ Feature: Introduction to cucumber part 3
     Then I see message: "<message>"
   @working
     Examples:
-      | name  | age | message                        |
+      | name  | age | message                        || value | message                   || value | message                   |
       | Ann   | 5   | Hello, Ann, you are a kid      |
       | Marry | 50  | Hello, Marry, you are an adult |
       | Bob   | 61  | Hello, Bob, you are an adult   |

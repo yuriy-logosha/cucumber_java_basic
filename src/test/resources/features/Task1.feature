@@ -5,7 +5,7 @@ Feature
 
   Scenario Outline: for error cases
     Given I am on Enter a number page
-    When  I enter value: "<value>"
+    When I enter value: <value>
     And   I click submit
     Then  I see message: "<message>"
     Examples:
@@ -16,9 +16,9 @@ Feature
 
   Scenario for correct number
     Given I am on Enter a number page
-    When  I enter value: "<value>"
+    When I enter value: <value>
     And   I click submit
     Then  I see message: "<message>"
 
-      | value | message                   |
+      |       | message                   |
       | 64    | Square root of 64 is 8.00 |
