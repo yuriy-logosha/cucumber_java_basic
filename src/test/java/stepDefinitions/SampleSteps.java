@@ -6,7 +6,6 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 import java.util.List;
 import java.util.Map;
@@ -124,4 +123,8 @@ public class SampleSteps {
     @And("^I should see Yandex logo$")
     public void iShouldSeeYandexLogo() {
     }
-}
+
+
+
+    }
+
