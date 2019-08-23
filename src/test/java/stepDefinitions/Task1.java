@@ -38,18 +38,18 @@ public class Task1 {
         assertEquals(message, driver.findElement(By.id("ch1_error")).getText());
     }
 
-    @When("^I enter value: \"([^\"]*)\"&")
+    @When("^I enter value: \"([^\"]*)\"$")
     public void iEnterValue(String number) throws Throwable {
         driver.findElement(By.id("numb")).clear();
         driver.findElement(By.id("numb")).sendKeys(number);
     }
 
-    @And ("^I click button&")
+    @And ("^I click button$")
     public void iClickButton() throws  Throwable {
         driver.findElement(By.className("w3-btn")).click();
     }
 
-    @Then("^I do not see any error message&")
+    @Then("^I do not see any error message$")
     public void iDoNotSeeAnyErrorMessage() throws Throwable {
         assertFalse(driver.findElement(By.id("ch1_error")).isDisplayed());
     }
