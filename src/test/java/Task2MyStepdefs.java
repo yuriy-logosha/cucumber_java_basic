@@ -79,9 +79,9 @@ public class Task2MyStepdefs {
     }
 
 
-    @And("^I click on delete first person from the list$")
-    public void iClickOnDeleteFirstPersonFromTheList() {
-        driver.findElement(By.xpath("//*[@id=\"person0\"]/span[1]")).click();
+    @And("^I click on delete edited person from the list$")
+    public void iClickOnDeleteEditedPersonFromTheList() {
+        driver.findElement(By.xpath("//*[@id=\"person3\"]/span[1]")).click();
     }
 
 
