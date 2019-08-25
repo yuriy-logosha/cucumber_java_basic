@@ -31,7 +31,7 @@ Feature: Task2
       | Masha |
       And I click edit again
       And I see edited person
-      And I click on delete first person from the list
+      And I click delete edited person from the list
       Then I see edited person is removed
 
       #•    reset original list after
