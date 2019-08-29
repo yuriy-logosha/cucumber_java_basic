@@ -6,7 +6,6 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 import java.util.List;
 import java.util.Map;
@@ -59,10 +58,10 @@ public class SampleSteps {
         driver.findElement(By.id("submit")).click();
     }
 
-    @Then("^I see message: \"([^\"]*)\"$")
+    /*@Then("^I see message: \"([^\"]*)\"$")
     public void iSeeMessage(String message) throws Throwable {
         assertEquals(message, driver.findElement(By.id("message")).getText());
-    }
+    }*/
 
     @When("^I enter values:$")
     public void iEnterValues(Map<String, String> valuesToEnter) throws Throwable {
